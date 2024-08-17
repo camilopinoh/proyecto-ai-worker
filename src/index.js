@@ -21,12 +21,12 @@ app.get('/stream', async c =>{
 	const question = query || 'How are you?'
 
 	const messages = [
-		{ role: "system", content: "Eres una amable asistente" },
+		{ role: "system", content: "Eres una amable asistente, hablas español" },
 		{ role: "user", content: question },
 	]
 
 	const aiResponse = await ai.run(
-		'@cf/meta/llama-3-8b-instruct',
+		'@cf/meta/llama-3.1-8b-instruct',
 		{ messages, stream: true }
 	)
 
@@ -45,12 +45,12 @@ app.post('/', async c =>{
 	const question = body.query || 'How are you?'
 
 	const messages = [
-		{ role: "system", content: "Eres una amable asistente" },
+		{ role: "system", content: "Eres una amable asistente, hablas español" },
 		{ role: "user", content: question },
 	]
 	
 	const aiResponse = await ai.run(
-		'@cf/meta/llama-3-8b-instruct',
+		'@cf/meta/llama-3.1-8b-instruct',
 		{ messages }
 	)
 
